@@ -5,9 +5,32 @@ sudo: required
 services:
   - docker
 
-before_install:
-   # build docker dev file used for testing and . for curr directory and tagged the image
-  - docker build -t sai/reactapp -f Dockerfile.dev .
+
+#deployable commands
+deploy:
+  provider: elasticbeanstalk
+  #region we created the elasticbeanstalk
+  region: "us-east-2"
+  # app name
+  app: "sample"
+  #env name from AWS
+  env: "Sample-env"
+  #travis zip the all the code files and deplou it to s3 and thats the bucket name 
+  #this is automatically created by beanstalk
+  bucket_name: "elasticbeanstalk-us-east-2-776697933493"
+  #path is initially same as app name
+  bucker_path: "sample"
+  #only deploy when master brach get code
+  on:
+    branch: master
+    #add env secrets in travis and place it here
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
+
+
+
+  
   
 
 
