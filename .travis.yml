@@ -1,0 +1,13 @@
+# this tells that we need super user permission to execute travis
+sudo: required 
+
+#it tells travis that we need docker
+services:
+  - docker
+
+bdefore_install:
+   # build docker dev file used for testing and . for curr directory and tagged the image
+  - docker build -t sai/reactapp -f Dockerfile.dev .
+  
+
+
