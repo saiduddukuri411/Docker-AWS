@@ -20,7 +20,7 @@ deploy:
   #this is automatically created by beanstalk
   bucket_name: "elasticbeanstalk-us-east-2-776697933493"
   #path is initially same as app name
-  bucker_path: "sample"
+  bucket_path: "sample"
   #only deploy when master brach get code
   on:
     branch: master
