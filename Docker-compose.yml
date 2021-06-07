@@ -1,0 +1,15 @@
+
+version: '3'
+
+services: 
+    web:
+        environment: 
+            - CHOKIDAR_USEPOLLING=true #react updates by windows
+        build:  #use docker file in our case its dockerfile.dev
+           context: . #to tell where the curr files exist, if its in some folder we use react-project
+           dockerfile: Dockerfile.dev #dockerfile name to build image
+        ports:
+            - "3000:3000" #mapping ports
+        volumes:
+            - /app/node_modules #book mark node_modules for not mapping
+            - .:/app #mark curr dir(.) to mao inside docker
