@@ -5,7 +5,7 @@ sudo: required
 services:
   - docker
 
-bdefore_install:
+before_install:
    # build docker dev file used for testing and . for curr directory and tagged the image
   - docker build -t sai/reactapp -f Dockerfile.dev .
   
